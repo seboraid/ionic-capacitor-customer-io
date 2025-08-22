@@ -10,7 +10,7 @@
     "android/",
     "dist/",
     "ios/",
-    "IonicCustomerIo.podspec"
+    "SeboraidIonicCapacitorCustomerIo.podspec"
   ],
   "author": "Sebastian Perez <hello@sebastianperez.co>",
   "license": "MIT",

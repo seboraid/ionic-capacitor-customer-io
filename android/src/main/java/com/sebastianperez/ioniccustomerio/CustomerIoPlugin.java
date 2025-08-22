@@ -1,4 +1,4 @@
-package com.yourcompany.ioniccustomerio;
+package com.sebastianperez.ioniccustomerio;
 
 import com.getcapacitor.Bridge;
 import com.getcapacitor.JSObject;
