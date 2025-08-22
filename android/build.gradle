@@ -1,0 +1,72 @@
+ext {
+    javaVersion = JavaVersion.VERSION_1_8
+    androidxActivityVersion = '1.4.0'
+    androidxAppCompatVersion = '1.4.2'
+    androidxCoordinatorLayoutVersion = '1.2.0'
+    androidxCoreVersion = '1.8.0'
+    androidxFragmentVersion = '1.4.1'
+    firebaseMessagingVersion = '23.0.5'
+    playServicesLocationVersion = '20.0.0'
+    junitVersion = '4.13.2'
+    androidxJunitVersion = '1.1.3'
+    androidxEspressoVersion = '3.4.0'
+}
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.1'
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 33
+    defaultConfig {
+        minSdkVersion project.hasProperty('minSdkVersion') ? rootProject.ext.minSdkVersion : 22
+        targetSdkVersion project.hasProperty('targetSdkVersion') ? rootProject.ext.targetSdkVersion : 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':capacitor-android')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.core:core:$androidxCoreVersion"
+    implementation "androidx.fragment:fragment:$androidxFragmentVersion"
+    implementation "androidx.activity:activity:$androidxActivityVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    
+    // Customer.io SDK
+    implementation 'io.customer.android:tracking:3.2.1'
+    implementation 'io.customer.android:messagingpush:3.2.1'
+    
+    // Firebase for push notifications
+    implementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
+    
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoVersion"
+}
