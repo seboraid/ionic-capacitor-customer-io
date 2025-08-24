@@ -1,5 +1,7 @@
 # @seboraid/ionic-capacitor-customer-io
 
+[![Publish Package](https://github.com/seboraid/ionic-capacitor-customer-io/actions/workflows/npm-publish.yml/badge.svg?event=status)](https://github.com/seboraid/ionic-capacitor-customer-io/actions/workflows/npm-publish.yml)
+
 Ionic Capacitor plugin for Customer.io native SDK integration on Android and iOS platforms.
 
 ## Features
